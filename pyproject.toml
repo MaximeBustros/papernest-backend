@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.100.0"
+pyproj = "^3.6.0"
 
 
 [build-system]
