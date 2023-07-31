@@ -28,7 +28,7 @@ class DataProcessor:
         gdfsel = gpd.GeoDataFrame(
             geometry=[Point(latitude, longitude)], crs="EPSG:4326"
         )
-        # Convert to 3035 to add 500 Meter radius buffer then convert back to EPSG4326
+        # Convert to 3035 to distance in meters buffer then convert back to EPSG4326
         gdfsel.to_crs(crs=3035, inplace=True)
         buffer = gdfsel.buffer(distance_in_meters)
         buffer = buffer.to_crs(4326)
