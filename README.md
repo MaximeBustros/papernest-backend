@@ -7,8 +7,12 @@
 poetry shell
 ```
 
-
 # To run extractor and convert values in datafile from csv to geojson with GPS coordinates
 ```
 python src/extractor.py
+```
+
+# To run endpoint
+```
+python src/main.py
 ```
