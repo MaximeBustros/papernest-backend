@@ -5,6 +5,8 @@ import geopandas as gpd
 import pandas as pd
 from shapely.geometry import Point
 
+from models.operator import operator_code_to_operator_name
+
 if __name__ == "__main__":
     """Extract CSV, convert Lambert93 coordinates to GPS coordinates and save to file.
 
@@ -18,6 +20,8 @@ if __name__ == "__main__":
     )
     print(f"Loading data from {DATA_PATH}")
     df = pd.read_csv(DATA_PATH, sep=";")
+
+    df["Nom Operateur"] = df["Operateur"].replace(operator_code_to_operator_name)
 
     #  Load as a geodataframe with points in lambert93
     geometry = [Point(xy) for xy in zip(df["x"], df["y"])]
