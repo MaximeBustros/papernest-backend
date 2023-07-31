@@ -21,7 +21,11 @@ if __name__ == "__main__":
     print(f"Loading data from {DATA_PATH}")
     df = pd.read_csv(DATA_PATH, sep=";")
 
+    # Add Nom operateur
     df["Nom Operateur"] = df["Operateur"].replace(operator_code_to_operator_name)
+
+    # Remove any NaN row
+    df.dropna(axis=0, inplace=True)
 
     #  Load as a geodataframe with points in lambert93
     geometry = [Point(xy) for xy in zip(df["x"], df["y"])]
